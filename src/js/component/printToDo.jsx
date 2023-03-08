@@ -1,11 +1,13 @@
 import React from "react";
 
-const PrintToDo = (props) => {
-
+const PrintToDo = ({eliminar , date, index, tarea, toDoDone, deleteToDo, arrayToDo }) => {
+  
     return (
         <div className="tododiv">
-            <p>{props.tarea}</p>
-            <p className="deletediv" onClick={props.deleteToDo}>X</p>
+            {(!(eliminar) ? (<button onClick={() => toDoDone(index)}>DONE</button>):null)}
+            <p>{tarea}</p>
+            <p>{date}</p>
+            <p className="deletediv" onClick={() => deleteToDo(index, arrayToDo)}>X</p>
         </div>
     )
 }
